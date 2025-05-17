@@ -1,0 +1,144 @@
+%!
+/PageWidth 595 def
+/PageHeight 842 def
+/MarginTop 50 def
+/MarginBottom 50 def
+/LineHeight 14 def
+
+/Times-Roman findfont 24 scalefont setfont
+
+/y 800 def
+/text (Telephone Numbers) def
+
+text stringwidth pop
+2 div
+PageWidth 2 div
+exch sub
+y
+moveto
+text show
+
+/Times-Roman findfont 12 scalefont setfont
+/y 783 def
+% date
+
+text stringwidth pop
+2 div
+PageWidth 2 div
+exch sub
+y
+moveto
+text show
+
+/Times-Roman findfont 12 scalefont setfont
+/y 767 def
+/text (Tokyo Wide Area Telephony Network) def
+
+text stringwidth pop
+2 div
+PageWidth 2 div
+exch sub
+y
+moveto
+text show
+
+/Times-Roman findfont 12 scalefont setfont
+/y 745 def
+/text (This directory may not reflect the most up-to-date information.) def
+
+text stringwidth pop
+2 div
+PageWidth 2 div
+exch sub
+y
+moveto
+text show
+
+gsave
+  PageWidth PageHeight translate
+  0.33 0.33 scale
+
+  % マージンを5ptに減らす（スケール逆数 ≒3.03なので約15ptが5ptに）
+  % よって座標は下記に変更
+  /xOffset -380 def
+  /yOffset -190 def
+
+  xOffset yOffset translate
+
+  /pi 3.1416 def
+  /fillblack { 0 0 0 setrgbcolor fill } def
+
+  % 台座
+  newpath
+  0 0 moveto
+  200 0 lineto
+  220 40 lineto
+  220 60 lineto
+  -40 60 lineto
+  -40 40 lineto
+  closepath
+  fillblack
+
+  % 受話器
+  newpath
+  -40 70 moveto
+  0 110 40 120 60 110 curveto
+  70 105 130 105 140 110 curveto
+  160 120 200 110 220 70 curveto
+  200 80 170 90 140 80 curveto
+  130 75 70 75 60 80 curveto
+  30 90 0 80 -40 70 curveto
+  closepath
+  fillblack
+
+  % ダイヤル円
+  newpath
+  100 40 35 0 360 arc
+  0.85 setgray fill
+
+  % ダイヤル穴＋数字
+  0 0 0 setrgbcolor
+  /number-font /Times-Bold findfont 6 scalefont def
+
+  /drawhole {
+    /angle exch def
+    /rad angle pi mul 180 div def
+    /r 25 def
+    /dx rad cos r mul def
+    /dy rad sin r mul def
+
+    newpath
+    100 dx add
+    40 dy add
+    5 0 360 arc
+    fill
+
+    number-font setfont
+    100 dx 3 mul 4 div add
+    40 dy 3 mul 4 div add moveto
+    angle 360 mod 36 div cvi 1 add 10 mod
+    =string cvs show
+  } def
+
+  [60 40 20 0 -20 -40 -60 -80 -100 -120] {
+    drawhole
+  } forall
+
+grestore
+
+/Times-Roman findfont 12 scalefont setfont
+/x 440 def
+/y 768 def
+x y moveto
+(Telephone for Everyone, ) show
+/x x -8 sub def
+/y y 10 sub def
+x y moveto
+(Connecting Heritages) show
+
+/x 45 def
+/y 735 def
+
+% body
+
+showpage
