@@ -13,6 +13,7 @@ $ make
 次の形式のファイルが出力されます。
 
 - EPS 形式: `ps2eps` が必要です。
+- PNG 形式: `convert`（ImageMagick）が必要です（追加の操作が必要かもしれません）。
 
 ## LICENSE
 
